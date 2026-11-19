@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- PASO 1: permite que el navegador use el ancho real del celular. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio | ACME</title>
+  <!-- PASO 2: conectar este HTML con el archivo CSS compartido. -->
+  <link rel="stylesheet" href="css/estilos.css">
+  <!-- Este icono aparece en la pestaña del navegador. -->
+  <link rel="icon" type="image/svg+xml" href="iconos/favicon.svg">
+</head>
+<body>
+<a class="saltar" href="#contenido">Saltar al contenido</a>
+<!-- PASO 3: este header permanece visible con position: sticky en CSS. -->
+<header class="cabecera">
+  <div class="contenedor barra">
+    <a class="marca" href="index.html"><img src="iconos/favicon.svg" alt="" width="42" height="42">ACME</a>
+    <!-- PASO 4: la lista principal se ordena horizontalmente con Flexbox. -->
+    <nav aria-label="Navegación principal">
+      <ul class="menu">
+        <li><a href="index.html#inicio">Inicio</a></li>
+        <li><a href="index.html#nosotros">Nosotros</a></li>
+        <li>
+          <!-- details abre el submenú con clic, Enter o toque; no necesita JS. -->
+          <details class="desplegable">
+            <summary>Resolver</summary>
+            <!-- Esta lista es el menú vertical desplegable. -->
+            <ul class="submenu">
+              <li><a href="index.html#servicios">Servicios</a></li>
+              <li><a href="index.html#orientador">Ver objetos</a></li>
+              <li><a href="index.html#contacto">Solicitar devolución</a></li>
+            </ul>
+          </details>
+        </li>
+        
+        
+        <li><a href="recursos.html">Video y guía</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="contenido">
+  <!-- PASO 5: el inicio está en la sección, no en el header sticky. -->
+  <section id="inicio" class="hero contenedor dos-columnas" aria-labelledby="titulo">
+    <div><p class="etiqueta">Oficina de pequeños reencuentros</p>
+      <h1 id="titulo">La feria termina.<br>Tu historia continúa.</h1>
+      <p>Una mochila olvidada entre los puestos. Una libreta que guarda una historia. En ACME te ayudamos a dar el primer paso para recuperarlas.</p>
+      <a class="boton" href="#orientador">Buscar un objeto</a>
+      <a class="enlace" href="recursos.html">Conocer la iniciativa</a>
+      <p class="nota">Un caso ficticio para aprender HTML y CSS.</p>
+    </div>
+    <figure class="postal"><img class="foto" src="imagenes/mochila.jpg" alt="Mochila preparada para una salida" width="1000" height="667"><figcaption>Hay cosas que merecen volver contigo.</figcaption></figure>
+  </section>
+  <section id="nosotros" class="seccion fondo"><div class="contenedor dos-columnas">
+    <img class="foto" src="imagenes/feria.jpg" alt="Productos y puestos de una feria" width="1000" height="667" loading="lazy">
+    <div><p class="etiqueta">Una mesa de ayuda entre los puestos</p><h2>No todo lo que se pierde se reemplaza.</h2><p>ACME es una oficina ficticia de objetos extraviados en ferias itinerantes. Cuando el evento se traslada, las personas no saben a quién preguntar ni dónde quedó lo encontrado.</p><h3>Nuestra propuesta</h3><p>Reunir referencias de objetos y orientar una solicitud de devolución desde una sola web.</p><p>El caso se vincula de forma pedagógica con el ODS 11 y el cuidado de los espacios de encuentro comunitario.</p></div>
+  </div></section>
+  <section id="servicios" class="seccion contenedor"><p class="etiqueta">Un recorrido sencillo</p><h2>Del “lo perdí” al “por aquí”.</h2>
+    <div class="tarjetas">
+      <article class="tarjeta"><span class="numero">01 / Mira</span><h3>Reconoce un objeto</h3><p>Revisa las referencias ficticias del puesto de objetos encontrados.</p><a href="#orientador">Ver referencias</a></article>
+      <article class="tarjeta"><span class="numero">02 / Cuenta</span><h3>Describe un detalle</h3><p>Prueba una solicitud con una característica que permita reconocer tu objeto.</p><a href="#contacto">Probar solicitud</a></article>
+      <article class="tarjeta"><span class="numero">03 / Vuelve</span><h3>Conoce el siguiente paso</h3><p>Consulta cómo sería el acompañamiento de la mesa de ayuda.</p><a href="recursos.html">Ver la guía</a></article>
+    </div>
+  </section>
+  <section id="orientador" class="seccion fondo"><div class="contenedor">
+    <p class="etiqueta">HU de ejemplo · Consultar objetos encontrados</p><h2>¿Qué estás buscando?</h2><p>Elige una categoría y revisa una referencia de demostración. No es un inventario real.</p>
+    <!-- PASO 7: mismo name, distintos id. Los radios controlan paneles con CSS. -->
+    <fieldset class="orientador"><legend>Tipo de objeto</legend>
+      <input type="radio" name="objeto" id="mochila" checked><label for="mochila">Una mochila</label>
+      <input type="radio" name="objeto" id="libreta"><label for="libreta">Una libreta</label>
+      <input type="radio" name="objeto" id="abrigo"><label for="abrigo">Un abrigo</label>
+      <div class="resultados">
+        <div class="respuesta mochila"><p class="etiqueta">Referencia AC 014</p><h3>Mochila encontrada junto al escenario</h3><p>Una mochila de tela fue entregada a la mesa de ayuda. En una solicitud real, te pediríamos describir un detalle que no sea público.</p></div>
+        <div class="respuesta libreta"><p class="etiqueta">Referencia AC 021</p><h3>Libreta encontrada en el puesto de artesanía</h3><p>Una libreta con hojas escritas quedó junto a una mesa. No publicamos su contenido. Describe una característica para iniciar una revisión de ejemplo.</p></div>
+        <div class="respuesta abrigo"><p class="etiqueta">Referencia AC 028</p><h3>Abrigo encontrado en la zona de descanso</h3><p>Una prenda fue entregada al cierre de la feria. Consulta cómo sería una coordinación de devolución con el equipo.</p></div>
+        <a class="boton" href="#contacto">Creo que puede ser mío</a>
+      </div>
+    </fieldset>
+    <p class="nota">Referencias inventadas. No se realizan búsquedas ni comprobaciones automáticas. La elección no se transfiere al formulario.</p>
+  </div></section>
+  <section id="proyectos" class="seccion contenedor"><p class="etiqueta">Cómo sería el servicio</p><h2>Un reencuentro con calma.</h2><div class="tarjetas"><article class="tarjeta"><h3>Encontramos</h3><p>La mesa de ayuda recibiría objetos encontrados sin exhibir detalles privados.</p></article><article class="tarjeta"><h3>Conversamos</h3><p>Una persona responsable revisaría los detalles de la solicitud.</p></article><article class="tarjeta"><h3>Coordinamos</h3><p>Si existe coincidencia, se acordaría una devolución en un punto atendido.</p></article></div></section>
+  <section id="galeria" class="seccion fondo"><div class="contenedor"><h2>Detrás de cada objeto, una historia.</h2><div class="galeria"><figure><img src="imagenes/mochila.jpg" alt="Mochila de referencia para la iniciativa" width="1000" height="667" loading="lazy"><figcaption>Una compañera de recorridos</figcaption></figure><figure><img src="imagenes/feria.jpg" alt="Productos expuestos en una feria" width="1000" height="667" loading="lazy"><figcaption>Un lugar para encontrarnos</figcaption></figure></div></div></section>
+  <section id="testimonios" class="seccion contenedor"><blockquote>“No era solo una libreta. Ahí estaba el dibujo que me hizo mi hija”.</blockquote><p>Relato ficticio para representar la necesidad del usuario.</p></section>
+  <section id="contacto" class="seccion fondo"><div class="contenedor dos-columnas">
+    <div><p class="etiqueta">HU de ejemplo · Solicitar una devolución</p><h2>Cuéntanos qué recuerdas.</h2><p>Completa datos ficticios para probar el recorrido. En un servicio real, una persona revisaría tu solicitud antes de coordinar una entrega.</p><p class="nota">Esta práctica no guarda datos ni registra solicitudes. No ingreses información personal real.</p></div>
+    <!-- PASO 8: required valida campos. Sin name: no añadimos datos a la URL. -->
+    <form action="confirmacion.html" method="get" class="formulario">
+      <label for="nombre">Nombre de prueba</label><input id="nombre" type="text" required maxlength="60" placeholder="Ejemplo: Ana" autocomplete="off">
+      <label for="correo">Correo de prueba</label><input id="correo" type="email" required placeholder="ana@example.com" autocomplete="off">
+      <label for="actividad">Objeto que buscas</label><select id="actividad" required><option value="">Selecciona una categoría</option><option>Mochila</option><option>Libreta</option><option>Abrigo</option></select>
+      <label for="detalle">Un detalle para reconocerlo</label><textarea id="detalle" required minlength="8" maxlength="240" rows="3" placeholder="Escribe una característica inventada"></textarea>
+      <div><input id="acepto" type="checkbox" required> <label for="acepto">Entiendo que es una simulación.</label></div>
+      <button type="submit" class="boton">Ver el siguiente paso</button>
+    </form>
+  </div></section>
+</main>
+<!-- PASO FINAL: pie compartido por las páginas del sitio. -->
+<footer class="pie">
+  <div class="contenedor">
+    <p><strong>ACME</strong> · Objetos que vuelven a casa</p>
+    <p>Contacto de ejemplo: hola@ejemplo.org</p>
+    <nav class="redes" aria-label="Redes sociales de referencia">
+      <!-- Son páginas generales de las redes; reemplazar por cuentas del proyecto. -->
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><img src="iconos/facebook.svg" alt="" width="24" height="24">Facebook</a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"><img src="iconos/instagram.svg" alt="" width="24" height="24">Instagram</a>
+      <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><img src="iconos/youtube.svg" alt="" width="24" height="24">YouTube</a>
+    </nav>
+    <p>© 2026 ACME · Ejemplo educativo ficticio · <a href="FUENTES.txt">Créditos de recursos</a></p>
+  </div>
+</footer>
+</body>
+</html>
